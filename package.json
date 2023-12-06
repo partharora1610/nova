@@ -1,0 +1,31 @@
+{
+  "name": "web-craft-2.0",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.js",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "npx parcel index.html",
+    "start:db": "json-server -w db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/partharora1610/WebWave.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/partharora1610/WebWave/issues"
+  },
+  "homepage": "https://github.com/partharora1610/WebWave#readme",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^1.6.2",
+    "json-server": "^0.17.4",
+    "parcel": "^2.10.3"
+  },
+  "devDependencies": {
+    "buffer": "^6.0.3"
+  }
+}
