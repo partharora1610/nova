@@ -1,4 +1,4 @@
-Framework that helps to create basic UI for web.
+Framework that helps to create basic data applications for web.
 
 ## Tech Stack
 
