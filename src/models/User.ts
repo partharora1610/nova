@@ -45,16 +45,27 @@ class User {
   fetch(): void {
     const id = this.attributes.get("id");
 
-    if (!id) {
+    if (typeof id !== "number") {
       throw new Error("cant get the user without any id");
     }
 
     this.sync.fetch(id).then((response: AxiosResponse): void => {
       this.attributes.set(response.data);
+      this.events.triger("change");
     });
   }
 
-  save(): void {}
+  save(): void {
+    const data = this.attributes.getAll();
+    this.sync
+      .save(data)
+      .then((response: AxiosResponse) => {
+        this.trigger("save");
+      })
+      .catch(() => {
+        this.trigger("error");
+      });
+  }
 }
 
 export default User;

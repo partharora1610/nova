@@ -6,11 +6,8 @@ export class Eventing {
   on = (eventName: string, callback: () => void) => {
     const handlers = this.events[eventName] || [];
 
-    if (handlers) {
-      handlers.push(callback);
-    } else {
-      this.events[eventName] = [callback];
-    }
+    handlers.push(callback);
+    this.events[eventName] = handlers;
   };
 
   triger = (eventName: string): void => {
