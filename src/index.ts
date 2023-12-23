@@ -1,6 +1,9 @@
 import User from "./models/User";
 
-const parth = User.build({ name: "Parth", age: 20 });
+const collection = User.buildCollection();
 
-console.log(parth);
-console.log(parth.get("name"));
+collection.on("change", () => {
+  console.log(collection);
+});
+
+collection.fetch();

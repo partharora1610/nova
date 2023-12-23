@@ -1,5 +1,6 @@
 import { ApiSync } from "./ApiSync";
 import { Attributes } from "./Attributes";
+import { Collection } from "./Collection";
 import { Eventing } from "./Eventing";
 import { Model } from "./Model";
 
@@ -19,7 +20,12 @@ class User extends Model<UserProps> {
       new ApiSync<UserProps>(rootUrl)
     );
   }
+
+  static buildCollection(): Collection<User, UserProps> {
+    return new Collection<User, UserProps>(rootUrl, (json: UserProps) =>
+      User.build(json)
+    );
+  }
 }
-// In model class the T is going to be replaced with UserProps
 
 export default User;
